@@ -10,14 +10,6 @@ if ! command -v openssl &> /dev/null; then
   fi
 fi
 
-# Установка qrencode
-if ! command -v qrencode &> /dev/null; then
-  sudo apt update && sudo apt install -y qrencode
-  if [ $? -ne 0 ]; then
-    exit 1
-  fi
-fi
-
 # Функция ожидания нажатия Enter
 wait_for_enter() {
   echo -e "Нажмите Enter, чтобы продолжить..."
@@ -42,43 +34,6 @@ if systemctl list-units --full -all | grep -Fq 'x-ui.service'; then
 else
   x-ui
 fi
-
-# ASCII-арт
-cat << "EOF"
-============================================================
-       ПОДПИШИСЬ НА НАС НА YOUTUBE: ANTEN-KA
-============================================================
-EOF
-
-# QR-код для чаевых
-echo "############################################################"
-echo "#                    QR-КОД ДЛЯ ЧАЕВЫХ                     #"
-echo "############################################################"
-TIP_LINK="https://pay.cloudtips.ru/p/7410814f"
-qrencode -t ANSIUTF8 "$TIP_LINK"
-wait_for_enter
-
-# Разделитель из 3 строк
-for i in {1..3}; do echo "============================================================"; done
-
-# QR-код YouTube
-echo "############################################################"
-echo "#                      QR-КОД YOUTUBE                      #"
-echo "############################################################"
-YT_LINK="https://www.youtube.com/antenkaru"
-qrencode -t ANSIUTF8 "$YT_LINK"
-wait_for_enter
-
-# Разделитель из 3 строк
-for i in {1..3}; do echo "============================================================"; done
-
-# QR-код Boosty
-echo "############################################################"
-echo "#                      QR-КОД BOOSTY                       #"
-echo "############################################################"
-BOOSTY_LINK="https://boosty.to/anten-ka"
-qrencode -t ANSIUTF8 "$BOOSTY_LINK"
-wait_for_enter
 
 # Разделитель из 3 строк
 for i in {1..3}; do echo "============================================================"; done
