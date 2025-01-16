@@ -14,6 +14,4 @@
 
 ### 1. Клонирование репозитория
 ```bash
-git clone https://github.com/acidmsg/self-signed-cert-script.git
-cd self-signed-cert-script
-chmod +x self_signed_cert.sh
+sudo apt update && sudo apt install -y git curl openssl systemd && rm -rf ~/self-signed-cert-script && git clone https://github.com/acidmsg/self-signed-cert-script.git && cd self-signed-cert-script && chmod +x self_signed_cert.sh && sudo ./self_signed_cert.sh
