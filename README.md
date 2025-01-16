@@ -14,6 +14,6 @@
 
 ### 1. Клонирование репозитория
 ```bash
-git clone https://github.com/anten-ka/self-signed-cert-script-by-antenka.git
-cd self-signed-cert-script-by-antenka
+git clone https://github.com/acidmsg/self-signed-cert-script.git
+cd self-signed-cert-script
 chmod +x self_signed_cert.sh
